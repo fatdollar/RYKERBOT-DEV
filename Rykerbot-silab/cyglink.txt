@@ -1,0 +1,3 @@
+"C:\Users\j.nielsen\Documents\SiLabs\Rykerbot\main.obj",
+"C:\Users\j.nielsen\Documents\SiLabs\Rykerbot\UART.obj",
+"C:\Users\j.nielsen\Documents\SiLabs\Rykerbot\PCA.obj"  TO "C:\Users\j.nielsen\Documents\SiLabs\Rykerbot\RykerBot" RS(256) PL(68) PW(78)  

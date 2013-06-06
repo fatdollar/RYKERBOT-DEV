@@ -1,0 +1,6 @@
+rykerbot/rykerbot/Debug/*
+rykerbot/rykerbot/Release/*
+rykerbot/Debug/*
+rykerbot/Release/*
+rykerbot/ipch/*
+*.user

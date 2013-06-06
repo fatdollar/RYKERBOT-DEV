@@ -1,0 +1,413 @@
+BL51 BANKED LINKER/LOCATER V6.20              11/16/2012  10:50:12  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.20, INVOKED BY:
+C:\SILABS\MCU\IDEFILES\C51\BIN\BL51.EXE C:\Users\j.nielsen\Documents\SiLabs\Ry
+>> kerbot\main.obj, C:\Users\j.nielsen\Documents\SiLabs\Rykerbot\UART.obj, C:\
+>> Users\j.nielsen\Documents\SiLabs\Rykerbot\PCA.obj TO C:\Users\j.nielsen\Doc
+>> uments\SiLabs\Rykerbot\RykerBot RS (256) PL (68) PW (78)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  C:\Users\j.nielsen\Documents\SiLabs\Rykerbot\main.obj (MAIN)
+  C:\Users\j.nielsen\Documents\SiLabs\Rykerbot\UART.obj (UART)
+  C:\Users\j.nielsen\Documents\SiLabs\Rykerbot\PCA.obj (PCA)
+  C:\SILABS\MCU\IDEFILES\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\SILABS\MCU\IDEFILES\C51\LIB\C51S.LIB (?C?UIDIV)
+  C:\SILABS\MCU\IDEFILES\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  C:\Users\j.nielsen\Documents\SiLabs\Rykerbot\RykerBot (MA
+>> IN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0045H     UNIT         ?DT?UART
+            DATA    004DH     0002H     UNIT         ?DT?PCA
+            DATA    004FH     0001H     UNIT         ?DT?MAIN
+            IDATA   0050H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     00A0H                  *** GAP ***
+            CODE    00A3H     0003H     ABSOLUTE     
+                    00A6H     075AH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0074H     UNIT         ?PR?_PCA_SETDIRECTION?PCA
+>> 
+            CODE    0900H     0058H     UNIT         ?PR?UART1_INTERRUPT?UART
+            CODE    0958H     0055H     UNIT         ?C?LIB_CODE
+            CODE    09ADH     0050H     UNIT         ?PR?_PCA_SETDUTYCYCLE?PCA
+>> 
+            CODE    09FDH     0039H     UNIT         ?PR?INITIALIZE?MAIN
+            CODE    0A36H     0028H     UNIT         ?PR?UART1_INIT?UART
+            CODE    0A5EH     0015H     UNIT         ?PR?UART1_PARSEDATA?UART
+            CODE    0A73H     0012H     UNIT         ?PR?PCA_INIT?PCA
+            CODE    0A85H     000CH     UNIT         ?PR?UART1_TRANSMIT?UART
+            CODE    0A91H     000AH     UNIT         ?PR?MAIN?MAIN
+            CODE    0A9BH     000AH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   C:\Users\j.nielsen\Documents\SiLabs\Rykerbot\RykerBot
+>>  (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+BL51 BANKED LINKER/LOCATER V6.20            11/16/2012  10:50:12  PAGE 2
+
+
+?PR?MAIN?MAIN
+  +--> ?PR?INITIALIZE?MAIN
+  +--> ?PR?UART1_PARSEDATA?UART
+
+?PR?INITIALIZE?MAIN
+  +--> ?PR?UART1_INIT?UART
+  +--> ?PR?PCA_INIT?PCA
+
+?PR?UART1_PARSEDATA?UART
+  +--> ?PR?_PCA_SETDUTYCYCLE?PCA
+  +--> ?PR?_PCA_SETDIRECTION?PCA
+  +--> ?PR?UART1_TRANSMIT?UART
+
+
+
+SYMBOL TABLE OF MODULE:  C:\Users\j.nielsen\Documents\SiLabs\Rykerbot\RykerBot
+>>  (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00FFH         PUBLIC        WDTCN
+  B:00A8H.7       PUBLIC        EA
+  D:00E8H         PUBLIC        ADC0CN
+  D:00A4H         PUBLIC        P0MDOUT
+  D:00A8H         PUBLIC        IE
+  D:00D8H         PUBLIC        PCA0CN
+  D:00B8H         PUBLIC        IP
+  D:00E1H         PUBLIC        XBR0
+  D:00E2H         PUBLIC        XBR1
+  D:00E3H         PUBLIC        XBR2
+  D:00C0H         PUBLIC        SMB0CN
+  C:0A91H         PUBLIC        main
+  D:004FH         PUBLIC        currentDir
+  D:00F8H         PUBLIC        SPI0CN
+  D:0088H         PUBLIC        TCON
+  C:09FDH         PUBLIC        initialize
+  D:00B2H         PUBLIC        OSCICN
+  D:00B1H         PUBLIC        OSCXCN
+  D:0098H         PUBLIC        SCON0
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0A91H         LINE#         5
+  C:0A91H         LINE#         6
+  C:0A91H         LINE#         7
+  C:0A94H         LINE#         9
+  C:0A96H         LINE#         13
+  C:0A96H         LINE#         14
+  C:0A96H         LINE#         16
+  C:0A99H         LINE#         17
+  -------         ENDPROC       MAIN
+  -------         PROC          INITIALIZE
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:09FDH         LINE#         20
+  C:09FDH         LINE#         21
+  C:09FDH         LINE#         25
+  C:0A00H         LINE#         26
+  C:0A03H         LINE#         29
+  C:0A06H         LINE#         32
+  C:0A09H         LINE#         33
+BL51 BANKED LINKER/LOCATER V6.20            11/16/2012  10:50:12  PAGE 3
+
+
+  C:0A19H         LINE#         34
+  C:0A1EH         LINE#         35
+  C:0A21H         LINE#         36
+  C:0A24H         LINE#         39
+  C:0A27H         LINE#         40
+  C:0A2AH         LINE#         41
+  C:0A2DH         LINE#         43
+  C:0A30H         LINE#         46
+  C:0A33H         LINE#         49
+  -------         ENDPROC       INITIALIZE
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        UART
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0008H         PUBLIC        TX_Ready
+  C:0A36H         PUBLIC        UART1_init
+  D:00E7H         PUBLIC        EIE2
+  D:00E8H         PUBLIC        ADC0CN
+  D:00A8H         PUBLIC        IE
+  D:00F7H         PUBLIC        EIP2
+  D:0009H         SYMBOL        Byte
+  D:00D8H         PUBLIC        PCA0CN
+  D:00B8H         PUBLIC        IP
+  D:000AH         PUBLIC        UART_Input_First
+  D:000BH         PUBLIC        UART_Output_First
+  C:0900H         PUBLIC        UART1_Interrupt
+  D:00C0H         PUBLIC        SMB0CN
+  D:00F8H         PUBLIC        SPI0CN
+  D:0087H         PUBLIC        PCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:0A85H         PUBLIC        UART1_transmit
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  D:00F2H         PUBLIC        SBUF1
+  D:0098H         PUBLIC        SCON0
+  D:00F1H         PUBLIC        SCON1
+  D:00C8H         PUBLIC        T2CON
+  C:0A5EH         PUBLIC        UART1_parseData
+  D:008EH         PUBLIC        CKCON
+  D:000CH         PUBLIC        UART_Buffer_Size
+  D:00D0H         PUBLIC        PSW
+  D:000DH         PUBLIC        UART_Buffer
+  -------         PROC          UART1_INIT
+  C:0A36H         LINE#         11
+  C:0A36H         LINE#         12
+  C:0A36H         LINE#         13
+  C:0A39H         LINE#         15
+  C:0A3CH         LINE#         16
+  C:0A3FH         LINE#         18
+  C:0A42H         LINE#         20
+  C:0A45H         LINE#         21
+  C:0A48H         LINE#         23
+  C:0A4BH         LINE#         24
+  C:0A4DH         LINE#         25
+  C:0A50H         LINE#         27
+  C:0A53H         LINE#         30
+  C:0A56H         LINE#         31
+  C:0A58H         LINE#         32
+  C:0A5AH         LINE#         33
+  C:0A5DH         LINE#         34
+  -------         ENDPROC       UART1_INIT
+  -------         PROC          UART1_INTERRUPT
+  C:0900H         LINE#         36
+BL51 BANKED LINKER/LOCATER V6.20            11/16/2012  10:50:12  PAGE 4
+
+
+  C:0909H         LINE#         38
+  C:090EH         LINE#         39
+  C:090EH         LINE#         41
+  C:0912H         LINE#         42
+  C:0912H         LINE#         43
+  C:0914H         LINE#         44
+  C:0914H         LINE#         46
+  C:0917H         LINE#         48
+  C:091EH         LINE#         49
+  C:091EH         LINE#         50
+  C:0925H         LINE#         51
+  C:0927H         LINE#         52
+  C:0929H         LINE#         53
+  C:0929H         LINE#         54
+  C:0929H         LINE#         56
+  C:092EH         LINE#         57
+  C:092EH         LINE#         58
+  C:0931H         LINE#         59
+  C:0938H         LINE#         60
+  C:0938H         LINE#         62
+  C:093DH         LINE#         63
+  C:093DH         LINE#         64
+  C:0940H         LINE#         65
+  C:0940H         LINE#         68
+  C:0948H         LINE#         77
+  C:094AH         LINE#         78
+  C:094CH         LINE#         79
+  C:094EH         LINE#         81
+  C:094EH         LINE#         82
+  C:0951H         LINE#         83
+  C:0951H         LINE#         84
+  C:0951H         LINE#         85
+  -------         ENDPROC       UART1_INTERRUPT
+  -------         PROC          UART1_TRANSMIT
+  C:0A85H         LINE#         87
+  C:0A85H         LINE#         88
+  C:0A85H         LINE#         89
+  C:0A8AH         LINE#         90
+  C:0A8AH         LINE#         91
+  C:0A8DH         LINE#         92
+  C:0A90H         LINE#         93
+  C:0A90H         LINE#         94
+  -------         ENDPROC       UART1_TRANSMIT
+  -------         PROC          UART1_PARSEDATA
+  C:0A5EH         LINE#         96
+  C:0A5EH         LINE#         97
+  C:0A5EH         LINE#         98
+  C:0A65H         LINE#         99
+  C:0A65H         LINE#         114
+  C:0A6AH         LINE#         115
+  C:0A6FH         LINE#         116
+  C:0A72H         LINE#         117
+  C:0A72H         LINE#         118
+  -------         ENDPROC       UART1_PARSEDATA
+  -------         ENDMOD        UART
+
+  -------         MODULE        PCA
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00E8H         PUBLIC        ADC0CN
+  D:00A4H         PUBLIC        P0MDOUT
+  D:00A8H         PUBLIC        IE
+  D:00FAH         PUBLIC        PCA0CPH0
+  D:00FBH         PUBLIC        PCA0CPH1
+  D:00FCH         PUBLIC        PCA0CPH2
+  B:00D8H.6       PUBLIC        CR
+BL51 BANKED LINKER/LOCATER V6.20            11/16/2012  10:50:12  PAGE 5
+
+
+  D:00FDH         PUBLIC        PCA0CPH3
+  D:00DAH         PUBLIC        PCA0CPM0
+  D:00D8H         PUBLIC        PCA0CN
+  D:00DBH         PUBLIC        PCA0CPM1
+  D:00DCH         PUBLIC        PCA0CPM2
+  D:00B8H         PUBLIC        IP
+  D:00DDH         PUBLIC        PCA0CPM3
+  C:09ADH         PUBLIC        _PCA_setDutyCycle
+  D:00C0H         PUBLIC        SMB0CN
+  C:088CH         PUBLIC        _PCA_setDirection
+  D:00F8H         PUBLIC        SPI0CN
+  D:0088H         PUBLIC        TCON
+  D:004EH         PUBLIC        dutycycle
+  D:0098H         PUBLIC        SCON0
+  D:00C8H         PUBLIC        T2CON
+  C:0A73H         PUBLIC        PCA_init
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          PCA_INIT
+  C:0A73H         LINE#         5
+  C:0A73H         LINE#         6
+  C:0A73H         LINE#         7
+  C:0A76H         LINE#         9
+  C:0A79H         LINE#         10
+  C:0A7CH         LINE#         11
+  C:0A7FH         LINE#         12
+  C:0A82H         LINE#         19
+  C:0A84H         LINE#         20
+  -------         ENDPROC       PCA_INIT
+  -------         PROC          _PCA_SETDUTYCYCLE
+  D:0003H         SYMBOL        command
+  -------         DO            
+  D:0006H         SYMBOL        temp
+  D:004DH         SYMBOL        duty
+  -------         ENDDO         
+  C:09ADH         LINE#         22
+  C:09AFH         LINE#         23
+  C:09AFH         LINE#         28
+  C:09BCH         LINE#         29
+  C:09BCH         LINE#         30
+  C:09BCH         LINE#         31
+  C:09BCH         LINE#         34
+  C:09BEH         LINE#         36
+  C:09C0H         LINE#         37
+  C:09C0H         LINE#         38
+  C:09C6H         LINE#         39
+  C:09C6H         LINE#         40
+  C:09C6H         LINE#         42
+  C:09CDH         LINE#         43
+  C:09D2H         LINE#         44
+  C:09D9H         LINE#         45
+  C:09DCH         LINE#         48
+  C:09E0H         LINE#         49
+  C:09E0H         LINE#         54
+  C:09E3H         LINE#         55
+  C:09E5H         LINE#         57
+  C:09E5H         LINE#         63
+  C:09E8H         LINE#         64
+  C:09FAH         LINE#         65
+  C:09FAH         LINE#         67
+  C:09FCH         LINE#         68
+  -------         ENDPROC       _PCA_SETDUTYCYCLE
+  -------         PROC          _PCA_SETDIRECTION
+  D:0007H         SYMBOL        dir
+  C:088CH         LINE#         70
+  C:088CH         LINE#         71
+BL51 BANKED LINKER/LOCATER V6.20            11/16/2012  10:50:12  PAGE 6
+
+
+  C:088CH         LINE#         73
+  C:088FH         LINE#         74
+  C:0892H         LINE#         75
+  C:0895H         LINE#         76
+  C:0898H         LINE#         77
+  C:08AAH         LINE#         78
+  C:08AAH         LINE#         79
+  C:08AAH         LINE#         80
+  C:08ADH         LINE#         81
+  C:08B0H         LINE#         82
+  C:08B3H         LINE#         83
+  C:08B6H         LINE#         84
+  C:08B6H         LINE#         85
+  C:08B6H         LINE#         86
+  C:08B8H         LINE#         87
+  C:08B8H         LINE#         88
+  C:08BBH         LINE#         89
+  C:08BEH         LINE#         90
+  C:08C1H         LINE#         91
+  C:08C1H         LINE#         92
+  C:08C1H         LINE#         93
+  C:08C1H         LINE#         94
+  C:08C3H         LINE#         95
+  C:08C3H         LINE#         96
+  C:08C6H         LINE#         97
+  C:08C9H         LINE#         98
+  C:08CCH         LINE#         99
+  C:08CFH         LINE#         100
+  C:08D2H         LINE#         101
+  C:08D5H         LINE#         102
+  C:08D6H         LINE#         103
+  C:08D6H         LINE#         104
+  C:08D9H         LINE#         105
+  C:08DCH         LINE#         106
+  C:08DFH         LINE#         107
+  C:08E2H         LINE#         108
+  C:08E5H         LINE#         109
+  C:08E5H         LINE#         110
+  C:08E7H         LINE#         111
+  C:08E7H         LINE#         112
+  C:08EAH         LINE#         113
+  C:08EDH         LINE#         114
+  C:08F0H         LINE#         115
+  C:08F3H         LINE#         116
+  C:08F6H         LINE#         117
+  C:08F9H         LINE#         118
+  C:08FCH         LINE#         119
+  C:08FFH         LINE#         120
+  C:08FFH         LINE#         121
+  C:08FFH         LINE#         122
+  -------         ENDPROC       _PCA_SETDIRECTION
+  -------         ENDMOD        PCA
+
+  -------         MODULE        ?C?UIDIV
+  C:0958H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+>> 
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 01C6H BYTE (22%) *
+>> 
+******************************************************************************
+>> 
+
+Program Size: data=81.0 xdata=0 code=683
+BL51 BANKED LINKER/LOCATER V6.20            11/16/2012  10:50:12  PAGE 7
+
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
